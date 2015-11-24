@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is a bug</title>
+</head>
+    <SCRIPT LANGUAGE="JavaScript"> 
+    <!-- 
+    var time = 7; //时间,秒 
+
+    function Redirect(){ 
+    window.location = "/"; 
+    } 
+    var i = 0; 
+    function dis(){ 
+        document.all.s.innerHTML = "<p>因为程序猿的捉急技术，您似乎进入了一个未知的领域！</p><p>联系我：iweaming@gmail.com</p><p>还剩&nbsp;" + (time - i) + "&nbsp;秒将跳转到博客主页</p>"; 
+    i++; 
+    } 
+    timer=setInterval('dis()', 1000);//显示时间 
+    timer=setTimeout('Redirect()',time * 1000); //跳转 
+
+    //--> 
+    </SCRIPT> 
+<body>
+    <div id="s" align="center"></div> 
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="info">
+    <p>欢迎访问</p>
+</div>
+<div id="posts">
+    <div class="mybox" id="menu">
+        <div class="sidebar">
+              <h4>近期文章</h4>
+              <ol>
+                  {% for post in posts %}
+                    {% module recent_post_module(post) %}
+                  {% end %}
+              </ol>
+        </div>
+    </div>
+
+    <div id="posts_preview">
+    {% for post in posts %}
+        <div class="jumbotron post-box">
+            {% module post_module(post) %}
+        </div>
+    {% end %}
+
+    <button id="pgp" type="" class="btn btn-danger" onclick="location.href='/page/{{ page-1}}'"><<&nbsp;上一页</button>
+    <button id="pgn" type="" class="btn btn-danger" onclick="location.href='/page/{{ page+1}}'">下一页&nbsp;>></button>
+    </div>
+</div>
+
+{% end %}

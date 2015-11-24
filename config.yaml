@@ -1,0 +1,4 @@
+name: gitmind
+version: 1
+
+worker: tornado

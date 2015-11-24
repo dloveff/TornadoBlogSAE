@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    {% block head %} {% module head_module(blog_settings) %} {% end %}
+</head>
+{#--------------------------------------------#}
+
+<body>
+    <nav id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+        {% block header %}
+            {% module header_module(blog_settings) %}
+        {% end %}
+    </nav>
+    {#--------------------------------------------#}
+    <div id="main" class="container theme-showcase">
+        <div id="content">
+            {% block content %}{% end %}
+        </div>
+        {% block footer %} {% module footer_module(blog_settings) %} {% end %}
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dark">
+    发布日期：{{ str(post.created)[0:10] }}  修改日期：{{ str(post.modified)[0:10] }}  作者：{{ post.uid.screen_name }}
+</div>
+
+<div class="post_text">
+    <form id="edit_form" method="post" action="/edit/{{ post.cid }}" id="edit_tb">
+         文章标题：&nbsp;<input type="text" name="post_title" value="{{ post.title }}">
+        <textarea name="post_text">{{ post.text }}</textarea>
+        <button type="submit" class="btn btn-success">更新</button>
+    </form>
+</div>
+{% end %}

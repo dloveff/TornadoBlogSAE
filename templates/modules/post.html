@@ -1,0 +1,25 @@
+{% autoescape None %}
+
+{% if link %}
+<h4><a href='/post/{{ post.cid }}'>{{ post.title }}</a></h4>
+{% else %}
+<h4>{{ post.title }}</h4>
+{% end %}
+<div class="dark">
+    发布日期：{{ str(post.created)[0:10] }}  修改日期：{{ str(post.modified)[0:10] }}  作者：{{ post.uid.screen_name }}
+    <div id='manage-link' class="right">
+        <a href="/edit/{{ post.cid }}" class="edit">
+            编辑
+        </a>
+    </div>
+</div>
+
+<div class="post_text">
+    {{ post.text.replace('\n', '<br>') }}
+</div>
+
+{% if duoshuo %}
+<div id="duoshuo">
+    {% module duoshuo_module(post)  %}
+</div>
+{% end %}

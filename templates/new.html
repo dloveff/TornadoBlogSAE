@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="post_text">
+    <form id="edit_form" method="post" action="/new" id="edit_tb">
+         文章标题：&nbsp;<input type="text" name="post_title" value="">
+        <textarea name="post_text"></textarea>
+        <button type="submit" class="btn btn-success">发布</button>
+    </form>
+</div>
+{% end %}

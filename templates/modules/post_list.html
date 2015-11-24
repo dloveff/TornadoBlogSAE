@@ -1,0 +1,21 @@
+<li>
+    <div class="post_links">
+        <a href="/edit/{{ post.cid }}">
+            {{ post.title }}
+        </a>
+    </div>
+    <div class="author">{{ post.uid.screen_name }}</div>
+    <div id='manage-link' class="right">
+        <a href="/post/{{ post.cid }}" class="view">
+            查看
+        </a>
+        <span>&nbsp;|&nbsp;</span>
+        <a href="/delete/{{ post.cid }}" class="delete">
+            删除
+        </a>
+        <span>&nbsp;|&nbsp;</span>
+        <a href="/edit/{{ post.cid }}" class="edit">
+            编辑
+        </a>
+    </div>
+</li>

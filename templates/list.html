@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="admin">
+    <button type="button" class="btn btn-success" onclick="window.open('/new')">新文章</button>
+    {% if user==admin_screen_name %}
+    <a href="/init"><button type="button" class="btn btn-danger">初始化</button></a>
+    {% end %}
+    <a href="/logout"><button type="button" class="btn btn-warning">退出</button></a>
+</div>
+<div id="posts">
+    <div class="mybox">
+        <ol>
+          {% for post in posts %}
+            {% module post_list_module(post) %}
+          {% end %}
+        </ol>
+    </div>
+</div>
+
+{% end %}

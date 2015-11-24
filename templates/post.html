@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="post">
+    <div class="jumbotron" id="post-list">
+        {% module post_module(post,duoshuo=True,link=False) %}
+    </div>
+</div>
+
+{% end %}
