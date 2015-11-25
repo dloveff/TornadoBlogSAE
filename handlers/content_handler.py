@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-import markdown as md
+from markdown2 import Markdown
+md = Markdown()
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options
@@ -27,7 +28,7 @@ class IndexHandler(BaseHandler):
             'index.html',
             page = 1,
             posts = pst,
-            md = md.markdown,
+            md = md.convert,
             blog_settings = conf.blog_settings,
         )
 
@@ -39,11 +40,11 @@ class PageHandler(BaseHandler):
         if int(page) <= 0:
             self.render('404.html')
         for p in pst:
-            p.text = md.markdown(p.text)
+            p.text = md.convert(p.text)
         self.render(
             'index.html',
             posts = pst,
-            md = md.markdown,
+            md = md.convert,
             page = int(page),
             blog_settings = conf.blog_settings,
         )
@@ -62,7 +63,7 @@ class PostHandler(BaseHandler):
         self.render(
             'post.html',
             post = db.get_post(cid),
-            md = md.markdown,
+            md = md.convert,
             blog_settings = conf.blog_settings,
         )
 
