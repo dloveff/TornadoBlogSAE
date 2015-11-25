@@ -11,50 +11,31 @@
      };
  });
 
-// function markdown() {
-//    var post_text = $('#post-text').html();
-//    var opts = {
-//        container: 'epiceditor',
-//        textarea: 'epiceditor-text',
-//        basePath: '../static/epiceditor',
-//        clientSideStorage: false,
-//        localStorageName: 'epiceditor',
-//        useNativeFullscreen: true,
-//        parser: marked,
-//        file: {
-//            name: 'epiceditor',
-//            defaultContent: post_text,
-//            autoSave: true
-//        },
-//        theme: {
-//            base: '/themes/base/epiceditor.css',
-//            preview: '/themes/preview/preview-dark.css',
-//            editor: '/themes/editor/epic-dark.css'
-//        },
-//        button: {
-//            preview: true,
-//            fullscreen: true,
-//            bar: "auto"
-//        },
-//        focusOnLoad: true,
-//        shortcut: {
-//            modifier: 18,
-//            fullscreen: 70,
-//            preview: 80
-//        },
-//        string: {
-//            togglePreview: '预览',
-//            toggleEdit: '编辑',
-//            toggleFullscreen: '全屏'
-//        },
-//        autogrow: false
-//    };
-//
-//    //var editor = new EpicEditor().load();
-//    var editor = new EpicEditor(opts);
-//    editor.load();
-//}
-//
-//$(document).ready(
-//    markdown()
-//);
+function insertAtCursor(myValue) {
+	myField = document.getElementById("textarea");
+	//IE support
+	if (document.selection) {
+	    myField.focus();
+	    sel = document.selection.createRange();
+	    sel.text = myValue;
+	}
+	//MOZILLA and others
+	else if (myField.selectionStart || myField.selectionStart == '0') {
+	    var startPos = myField.selectionStart;
+	    var endPos = myField.selectionEnd;
+	    myField.value = myField.value.substring(0, startPos)
+	        + myValue
+	        + myField.value.substring(endPos, myField.value.length);
+	        myField.selectionStart = startPos + myValue.length;
+	        myField.selectionEnd = startPos + myValue.length;
+	} else {
+	    myField.value += myValue;
+	}
+}
+
+document.getElementById('textarea').onkeydown = function(e){
+ if (e.keyCode == 9) {
+ insertAtCursor('    ');
+ return false;
+ }
+}
