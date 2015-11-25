@@ -7,7 +7,6 @@ import tornado.web
 
 import configurations as conf
 from utils import db
-from utils.db import *
 
 class BaseHandler(tornado.web.RequestHandler):
     def get_current_user(self):
@@ -78,7 +77,7 @@ class LoginHandler(BaseHandler):
     def post(self, *args, **kwargs):
         account = self.get_argument('account')
         password = self.get_argument('password')
-        login_info = db.login(account=account,password=password)
+        login_info = db.login(account=account, password=password)
         if not isinstance(login_info,str):
             self.set_secure_cookie("login_name", login_info.login_name)
             self.redirect('/admin')

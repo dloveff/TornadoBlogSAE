@@ -3,7 +3,7 @@ __author__ = 'weaming'
 import sae
 
 
-ppp = 20
+ppp = 10
 
 blog_settings = {
     'title':'阮家灯的博客',
