@@ -71,7 +71,7 @@ def get_posts(num=20):# 参数为要获取的文章数
         print 'Get post list fail'
 
 @db_link
-def get_page(page=1):# 参数为要获取的文章数
+def get_page(page=1):# 参数为要获取的页数
     try:
         contents = Content.select(Content,User).join(User).where(Content.uid == User.uid).order_by(Content.cid.desc()).paginate(page, conf.ppp)
         return contents

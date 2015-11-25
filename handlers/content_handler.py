@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+import markdown as md
 import tornado.httpserver
 import tornado.ioloop
 import tornado.options
@@ -21,23 +22,28 @@ def current_cookie_user(self):
 
 class IndexHandler(BaseHandler):
     def get(self):
+        pst = db.get_page()
         self.render(
             'index.html',
-            #posts = db.get_posts(conf.ppp),
             page = 1,
-            posts = db.get_page(),
+            posts = pst,
+            md = md.markdown,
             blog_settings = conf.blog_settings,
         )
 
 class PageHandler(BaseHandler):
     def get(self, page):
-        if db.get_page(int(page)) == []:
+        pst = db.get_page(int(page))
+        if pst == []:
             self.render('404.html')
         if int(page) <= 0:
             self.render('404.html')
+        for p in pst:
+            p.text = md.markdown(p.text)
         self.render(
             'index.html',
-            posts = db.get_page(int(page)),
+            posts = pst,
+            md = md.markdown,
             page = int(page),
             blog_settings = conf.blog_settings,
         )
@@ -56,6 +62,7 @@ class PostHandler(BaseHandler):
         self.render(
             'post.html',
             post = db.get_post(cid),
+            md = md.markdown,
             blog_settings = conf.blog_settings,
         )
 

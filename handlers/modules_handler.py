@@ -32,8 +32,8 @@ class DuoshuoModule(tornado.web.UIModule): # url留空则为首页，否则url�
 
 
 class PostModule(tornado.web.UIModule):
-    def render(self, post, duoshuo=False, link=True):
-        return self.render_string('modules/post.html',post=post,duoshuo=duoshuo,link=link)
+    def render(self, post, md, duoshuo=False, link=True):
+        return self.render_string('modules/post.html',post=post,md=md,duoshuo=duoshuo,link=link)
 
 class RecentPostMenuModule(tornado.web.UIModule):
     def render(self, post):

@@ -157,29 +157,33 @@ body{
 }
 /*post css*/
 .post_text p{
-    font-size: 16px;
+    font-size: 15px;
 }
 .post_text h1 {
-    font-size: 32px;
+    font-size: 23px;
     font-weight: bold;
-    color: #3572A5;
+    color: #ffffff;
+    border-bottom: 1px solid #111;
+    margin-bottom: 16px;
 }
 .post_text h2 {
-    font-size: 28px;
+    font-size: 21px;
     font-weight: bold;
-    color: #3572A5;
+    color: #ffffff;
+    border-bottom: 1px solid #111;
+    margin-bottom: 16px;
 }
 .post_text h3 {
-    font-size: 24px;
-    color: #3572A5;
+    font-size: 19px;
+    color: #ffffff;
 }
 .post_text h4 {
-    font-size: 20px;
-    color: #3572A5;
+    font-size: 17px;
+    color: #ffffff;
 }
 .post_text h5 {
-    font-size: 18px;
-    color: #3572A5;
+    font-size: 17px;
+    color: #ffffff;
 }
 .post_text p{
     margin-bottom: 0px;

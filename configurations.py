@@ -14,7 +14,7 @@ blog_settings = {
 }
 
 deploy_settings = {
-    'domain':'gitmind.sinaapp.com',
+    'domain':'codelog.sinaapp.com',
     'db_name':sae.const.MYSQL_DB,
     'db_port':int(sae.const.MYSQL_PORT),
     'db_host':sae.const.MYSQL_HOST,
