@@ -10,9 +10,8 @@ start @2015.09.11
 --
 2015.10.15
 
-围观地址：http://gitmind.sinaapp.com  
+围观地址：http://codelog.sinaapp.com/  
 SAE代码（python2.7）地址：https://github.com/weaming/TornadoBlogSAE  
-本地开发代码（python3.4）地址：https://github.com/weaming/TornadoBlog  
 
 SAE部署过程记录
 ==
