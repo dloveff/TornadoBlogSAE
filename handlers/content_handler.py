@@ -87,8 +87,11 @@ class LoginHandler(BaseHandler):
         password = self.get_argument('password')
         login_info = db.login(account=account, password=password)
         if not isinstance(login_info,str):
-            self.set_secure_cookie("login_name", login_info.login_name)
-            self.redirect('/admin')
+            try:
+                self.set_secure_cookie("login_name", login_info.login_name)
+                self.redirect('/admin')
+            except:
+                self.redirect("/login")
         else:
             self.redirect("/login")
 
