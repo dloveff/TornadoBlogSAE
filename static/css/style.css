@@ -229,6 +229,7 @@ body{
 /* highlight */
 pre{
     margin: 10px auto;
+    border: 0px;
 }
 code{
     margin: auto 0px;
