@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-from peewee import *
-import configurations as conf
 import re
 from datetime import datetime
+from math import ceil
+
+from peewee import *
+import configurations as conf
 
 # mysql_db = MySQLDatabase('test',host='localhost',port=3306,user='root',password='weaming')
 mysql_db = MySQLDatabase(conf.deploy_settings['db_name'],host=conf.deploy_settings['db_host'],port=conf.deploy_settings['db_port'],user=conf.deploy_settings['db_user'],password=conf.deploy_settings['db_passwd'])
@@ -77,6 +79,11 @@ def get_page(page=1):# 参数为要获取的页数
         return contents
     except:
         print 'Get post list fail'
+
+@db_link
+def get_page_num():
+    p_num = Content.select().count()
+    return int(ceil( float(p_num)/conf.ppp ))
 
 @db_link
 def new_post(**kw):# 参数为新文章的数据库的键值对,uid,title,text

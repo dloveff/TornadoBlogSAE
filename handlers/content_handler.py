@@ -28,6 +28,7 @@ class IndexHandler(BaseHandler):
             'index.html',
             page = 1,
             posts = pst,
+            pagenum = db.get_page_num(),
             md = md.convert,
             blog_settings = conf.blog_settings,
         )
@@ -35,8 +36,6 @@ class IndexHandler(BaseHandler):
 class PageHandler(BaseHandler):
     def get(self, page):
         pst = db.get_page(int(page))
-        if pst == []:
-            self.render('404.html')
         if int(page) <= 0:
             self.render('404.html')
         for p in pst:
@@ -44,6 +43,7 @@ class PageHandler(BaseHandler):
         self.render(
             'index.html',
             posts = pst,
+            pagenum = db.get_page_num(),
             md = md.convert,
             page = int(page),
             blog_settings = conf.blog_settings,

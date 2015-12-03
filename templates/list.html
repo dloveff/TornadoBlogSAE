@@ -2,7 +2,7 @@
 
 {% block content %}
 <div id="admin">
-    <button type="button" class="btn btn-success" onclick="window.open('/new')">新文章</button>
+    <a href="/new"><button type="button" class="btn btn-success">新文章</button></a>
     {% if user==admin_screen_name %}
     <a href="/init"><button type="button" class="btn btn-danger">初始化</button></a>
     {% end %}

@@ -7,12 +7,16 @@
 <div id="posts">
     <div class="mybox" id="menu">
         <div class="sidebar">
-              <h4>近期文章</h4>
-              <ol>
-                  {% for post in posts %}
-                    {% module recent_post_module(post) %}
-                  {% end %}
-              </ol>
+            {% if page == 1 %}
+            <h4>近期文章</h4>
+            {% else %}
+            <h4>历史文章</h4>
+            {% end %}
+            <ol>
+                {% for post in posts %}
+                {% module recent_post_module(post) %}
+                {% end %}
+            </ol>
         </div>
     </div>
 
@@ -23,8 +27,12 @@
         </div>
     {% end %}
 
+    {% if page > 1 %}
     <button id="pgp" type="" class="btn btn-danger" onclick="location.href='/page/{{ page-1}}'"><<&nbsp;上一页</button>
+    {% end %}
+    {% if page != pagenum %}
     <button id="pgn" type="" class="btn btn-danger" onclick="location.href='/page/{{ page+1}}'">下一页&nbsp;>></button>
+    {% end %}
     </div>
 </div>
 
