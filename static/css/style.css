@@ -127,6 +127,9 @@ body{
     border-color: #333333;
     font-size: 1.2em;
 }
+#info p{
+    margin: 10px;
+}
 .mybox{
     background-color: #333333;
     margin: 10px 8px;
