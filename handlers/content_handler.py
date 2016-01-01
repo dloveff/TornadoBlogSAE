@@ -41,7 +41,7 @@ class PageHandler(BaseHandler):
         if int(page) <= 0:
             self.render('404.html')
         for p in pst:
-            p.text = md.render(p.text)
+            p.text = md.render(p.text[:300]+'\n\n...')
         self.render(
             'index.html',
             posts = pst,
