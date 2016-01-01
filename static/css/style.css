@@ -88,8 +88,9 @@ body{
 }
 
 #menu{
-    width: 20%;
-    display: inline-block;
+    /*width: 100%;*/
+    margin: auto 20%;
+    padding-left: 30px;
 }
 .post_links{
     color: #999999;
@@ -119,7 +120,7 @@ body{
 }
 #info{
     background-color: #333333;
-    margin: 2px;
+    margin: 10px 20%;
     padding: 3px 15px;
     color: #398439;
     border:2px solid;
