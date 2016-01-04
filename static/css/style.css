@@ -237,9 +237,6 @@ body{
     #navbar-items li{
         display: none;
     }
-    #menu{
-        display: none;
-    }
     #posts_preview{
         width: 100%;
     }
